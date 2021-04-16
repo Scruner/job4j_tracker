@@ -15,9 +15,4 @@ public class Max {
         int tmp = max(left, right, center);
         return tmp > up ? tmp : up;
     }
-
-    public static void main(String[] args) {
-        int c = Max.max(3, 4);
-        System.out.println(c);
-    }
 }
