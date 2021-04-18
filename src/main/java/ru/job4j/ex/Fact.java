@@ -6,7 +6,7 @@ public class Fact {
         System.out.println(fact.calc(4));
     }
 
-    public int calc(int n) {
+    public static int calc(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("Метод вызывается с некорректными параметрами");
         }
