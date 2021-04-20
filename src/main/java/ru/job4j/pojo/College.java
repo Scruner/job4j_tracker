@@ -1,5 +1,6 @@
 package ru.job4j.pojo;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class College {
@@ -10,7 +11,7 @@ public class College {
         student.setName("Alexey");
         student.setMiddleName("Olegovish");
         student.setGroupId(5);
-        student.setAdmissionDate();
+        student.setAdmissionDate(LocalDateTime.now());
         System.out.println("Student surname: " + student.getSurname()
                 + System.lineSeparator() + "Student name: " + student.getName()
                 + System.lineSeparator() + "Student middleName: " + student.getMiddleName()

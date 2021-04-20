@@ -46,7 +46,8 @@ public class Student {
         return admissionDate;
     }
 
-    public void setAdmissionDate() {
+    public void setAdmissionDate(LocalDateTime admissionDate) {
         this.admissionDate = admissionDate;
     }
+
 }
