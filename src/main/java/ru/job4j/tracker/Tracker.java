@@ -15,15 +15,16 @@ public class Tracker {
 
     public Item[] findAll() {
         Item[] itemsWithoutNull = new Item[items.length];
-            return Arrays.copyOf(itemsWithoutNull, size);
-        }
+        return Arrays.copyOf(itemsWithoutNull, size);
+    }
 
 
     public Item[] findByName(String key) {
         int localSize = 0;
         Item[] itemsWithoutDouble = new Item[items.length];
         for (int index = 0; index < size; index++) {
-            if (items[index].getName().equals(key)) {
+            if (items[index].getName()
+                    .equals(key)) {
                 itemsWithoutDouble[localSize] = items[index];
                 localSize++;
             }
@@ -32,14 +33,27 @@ public class Tracker {
     }
 
     public Item findById(int id) {
-        Item rsl = null;
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+
+    private int indexOf(int id) {
+        int rsl = -1;
         for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
+            if (items[index].getId() == id) {
+                rsl = index;
                 break;
             }
         }
         return rsl;
+    }
+
+    public boolean replace(int id, Item item) {
+        int index = indexOf(id);
+        for (int i = 0; i < size; i++) {
+            i = item.getId();
+            items[index] = item;
+        }
+        return index != -1 ? true : false;
     }
 }
