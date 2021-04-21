@@ -41,4 +41,14 @@ public class PhoneDictionaryTest {
         assertThat(persons.get(0)
                 .getAddress(), is("Moscow"));
     }
+
+    @Test
+    public void whenFindByNothing() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("", "", "", "")
+        );
+        ArrayList<Person> persons = phones.find("123445");
+        assertThat(persons, is(""));
+    }
 }
