@@ -30,9 +30,9 @@ public class UserStore {
                 System.out.println("This user has an access");
             }
         } catch (UserInvalidException e) {
-            System.out.println("User not valid");
+            e.printStackTrace();
         } catch (UserNotFoundException e) {
-            System.out.println("User not listed");
+            e.printStackTrace();
         }
     }
 }
