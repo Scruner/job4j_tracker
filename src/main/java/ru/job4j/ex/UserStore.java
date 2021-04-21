@@ -21,7 +21,6 @@ public class UserStore {
     }
 
     public static void main(String[] args) {
-
         User[] users = {
                 new User("Petr Arsentev", true)
         };
@@ -31,9 +30,9 @@ public class UserStore {
                 System.out.println("This user has an access");
             }
         } catch (UserInvalidException e) {
-            e.getMessage("User not valid");
+            System.out.println("User not valid");
         } catch (UserNotFoundException e) {
-            e.getMessage("User not listed");
+            System.out.println("User not listed");
         }
     }
 }
