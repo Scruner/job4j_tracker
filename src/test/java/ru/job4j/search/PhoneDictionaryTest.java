@@ -46,9 +46,9 @@ public class PhoneDictionaryTest {
     public void whenFindByNothing() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
-                new Person("", "", "", "")
+                new Person("Roma", "Romanov", "098300", "Kaluga")
         );
-        ArrayList<Person> persons = phones.find("123445");
-        assertThat(persons, is(""));
+        ArrayList<Person> persons = phones.find("000445");
+        assertThat(persons.isEmpty(), is(true));
     }
 }
