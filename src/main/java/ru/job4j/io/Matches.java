@@ -15,7 +15,7 @@ public class Matches {
             int matches = Integer.parseInt(input.nextLine());
             turn = !turn;
             if (matches > 3 || matches < 1) {
-                System.out.println(player + " вы ввели неверное число, введите число от 1 до 3:");
+                System.out.println(player + " вы ввели неверное число. Введите число от 1 до 3:");
                 continue;
             }
             count -= matches;
