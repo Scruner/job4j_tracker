@@ -29,7 +29,6 @@ public class StartUI {
                 System.out.println("Enter name: ");
                 String name = scanner.nextLine();
                 Item newItem = new Item(name);
-                tracker.replace(id, newItem);
                 if (tracker.replace(id, newItem)) {
                     System.out.println("The operation was successful");
                 } else {
@@ -39,7 +38,6 @@ public class StartUI {
                 System.out.println("===Delete item===");
                 System.out.println("Enter id: ");
                 int id = Integer.valueOf(scanner.nextLine());
-                tracker.delete(id);
                 if (tracker.delete(id)) {
                     System.out.println("The operation was successful");
                 } else {
