@@ -10,6 +10,13 @@ public class Item {
         this.name = name;
     }
 
+    public Item(String name) {
+        this.name = name;
+    }
+
+    public Item() {
+    }
+
     public int getId() {
         return id;
     }
