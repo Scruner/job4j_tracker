@@ -17,13 +17,9 @@ public class Matches {
                 System.out.println(player + " вы ввели неверное число. Введите число от 1 до 3:");
                 continue;
             }
-
+            turn = !turn;
             count -= matches;
             System.out.println("Спичек на столе осталось: " + count);
-            if (count < 1) {
-                break;
-            }
-            turn = !turn;
         }
         if (!turn) {
             System.out.println("Выиграл первый игрок");
