@@ -19,8 +19,8 @@ public class StartUI {
             } else if (select == 1) {
                 System.out.println("===Show all items===");
                 Item[] items = tracker.findAll();
-                for (int i = 0; i < items.length; i++) {
-                    System.out.println(items[i]);
+                for (Item item : items) {
+                    System.out.println(item);
                 }
             } else if (select == 2) {
                 System.out.println("===Edit item===");
@@ -59,8 +59,8 @@ public class StartUI {
                 String name = scanner.nextLine();
                 Item[] items = tracker.findByName(name);
                 if (items.length > 0) {
-                    for (int i = 0; i < items.length; i++) {
-                        System.out.println(items[i]);
+                    for (Item item : items) {
+                        System.out.println(item);
                     }
                 } else {
                     System.out.println("Заявки с таким именем не найдены");
