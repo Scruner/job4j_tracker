@@ -4,7 +4,7 @@ public class StartUI {
 
     public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ====");
-        String name = input.askStr("Enter name");
+        String name = input.askStr("Enter items name");
         Item item = new Item(name);
         tracker.add(item);
         System.out.println("Добавлена заявка: " + item);
@@ -24,8 +24,8 @@ public class StartUI {
 
     public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("===Edit item===");
-        int id = Integer.valueOf(input.askStr("Enter id:"));
-        String name = input.askStr("Enter name");
+        int id = Integer.valueOf(input.askStr("Enter items id:"));
+        String name = input.askStr("Enter items name");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
             System.out.println("Заявка изменена успешно");
@@ -36,7 +36,7 @@ public class StartUI {
 
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("===Delete item===");
-        int id = Integer.valueOf(input.askStr("Enter id:"));
+        int id = Integer.valueOf(input.askStr("Enter items id:"));
         if (tracker.delete(id)) {
             System.out.println("Заявка успешно удалена");
         } else {
@@ -46,7 +46,7 @@ public class StartUI {
 
     public static void findByIdItem(Input input, Tracker tracker) {
         System.out.println("===Find item by Id===");
-        int id = Integer.valueOf(input.askStr("Enter id:"));
+        int id = Integer.valueOf(input.askStr("Enter items id:"));
         Item item = tracker.findById(id);
         if (item != null) {
             System.out.println(item);
@@ -57,7 +57,7 @@ public class StartUI {
 
     public static void findByNameItem(Input input, Tracker tracker) {
         System.out.println("===Find item by name===");
-        String name = input.askStr("Enter name");
+        String name = input.askStr("Enter items name");
         Item[] items = tracker.findByName(name);
         if (items.length > 0) {
             for (Item item : items) {
