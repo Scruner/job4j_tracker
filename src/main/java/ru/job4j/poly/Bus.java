@@ -1,6 +1,6 @@
 package ru.job4j.poly;
 
-public class Bus implements Transport {
+public class Bus implements Transport, Vehicle {
 
     private int rideKm = 0;
     private int priceLitreFuel = 0;
@@ -18,5 +18,15 @@ public class Bus implements Transport {
     @Override
     public int refuel(int litreFuel) {
         return litreFuel * priceLitreFuel;
+    }
+
+    @Override
+    public void move() {
+        System.out.println("Bus is on the highway");
+    }
+
+    @Override
+    public void speed() {
+        System.out.println("The average bus speed is 60 km/h");
     }
 }
