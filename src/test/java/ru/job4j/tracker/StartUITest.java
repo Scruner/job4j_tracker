@@ -34,7 +34,7 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
-                        "0. FindAll" + System.lineSeparator() +
+                        "0. ShowAll" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
         ));
     }
@@ -98,7 +98,7 @@ public class StartUITest {
     public void whenFindByName() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Find by name item"));
+        Item item = tracker.add(new Item("Find item by name"));
         Input in = new StubInput(new String[]{"0", String.valueOf(item.getName()), "1"});
         UserAction[] actions = {
                 new FindByNameAction(out),
