@@ -12,12 +12,12 @@ public class StartUITest {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"0", "test1", "1"});
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("tes1"));
         UserAction[] actions = {
                 new CreateAction(out),
                 new ExitAction()};
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
+        Item item = tracker.findAll()[0];
         assertThat(out.toString(), is(
                 "Menu." + ln
                         + "0. Create" + ln
