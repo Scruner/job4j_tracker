@@ -10,16 +10,22 @@ public class StartUITest {
     @Test
     public void whenCreateItem() {
         Output out = new StubOutput();
-        Input in = new StubInput(new String[]{"0", "Item name", "1"});
+        Input in = new StubInput(new String[]{"0", "test1", "1"});
         Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("tes1"));
         UserAction[] actions = {
                 new CreateAction(out),
                 new ExitAction()};
         new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. Exit" + System.lineSeparator()
+                "Menu." + ln
+                        + "0. Create" + ln
+                        + "1. Exit" + ln + "=== Create a new Item ====" + ln
+                        + "Добавлена заявка: " + item + ln
+                        + "Menu." + ln
+                        + "0. Create" + ln
+                        + "1. Exit" + ln
         ));
     }
 
@@ -28,14 +34,20 @@ public class StartUITest {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"0", "1"});
         Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("tes1"));
         UserAction[] actions = {
                 new FindAllAction(out),
                 new ExitAction()};
         new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. ShowAll" + System.lineSeparator() +
-                        "1. Exit" + System.lineSeparator()
+                "Menu." + ln
+                        + "0. ShowAll" + ln
+                        + "1. Exit" + ln + "===Show all items===" + ln
+                        + item + ln
+                        + "Menu." + ln
+                        + "0. ShowAll" + ln
+                        + "1. Exit" + ln
         ));
     }
 
@@ -43,7 +55,7 @@ public class StartUITest {
     public void whenReplaceItem() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Replaced item"));
+        Item item = tracker.add(new Item("newTest"));
         String replacedName = "New item name";
         Input in = new StubInput(new String[]{"0", String.valueOf(item.getId()), replacedName, "1"});
         UserAction[] actions = {
