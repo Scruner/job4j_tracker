@@ -15,11 +15,13 @@ public class BankService {
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        for (User acc : users.keySet()) {
-            users.get(acc);
-        }
-        if (!users.containsKey(account)) {
-            users.put(user, (List<Account>) account);
+        List<Account> accounts = new ArrayList<>();
+        if (user != null) {
+            for (Account acc : accounts) {
+                if (!accounts.contains(acc)) {
+                    accounts.add(acc);
+                }
+            }
         }
     }
 
@@ -34,12 +36,13 @@ public class BankService {
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        Account account = null;
-        for (User user : users.keySet()) {
-            if (user.getPassport()
-                    .equals(passport) && account.getRequisite()
-                    .equals(requisite)) {
-                return account;
+        User user = findByPassport(passport);
+        List<Account> accounts = new ArrayList<>();
+        if (user != null) {
+            for (Account acc : accounts) {
+                if (accounts.contains(acc.getRequisite())) {
+                    return acc;
+                }
             }
         }
         return null;
@@ -48,10 +51,18 @@ public class BankService {
     public boolean transferMoney(
             String srcPassport, String srcRequisite,
             String destPassport, String destRequisite, double amount) {
+        User user = findByPassport(srcPassport);
+        User user2 = findByPassport(destPassport);
         boolean rsl = false;
-        double balance = 0;
-        if (users.containsKey(srcRequisite) || balance < amount) {
-            rsl = true;
+        List<Account> accounts = new ArrayList<>();
+        if (user != null && user2 != null) {
+            for (Account acc : accounts) {
+                if (acc.getBalance() >= amount) {
+                    user.set(amount)--;
+                    user2.get(amount)++;
+                    rsl = true;
+                }
+            }
         }
         return rsl;
     }
