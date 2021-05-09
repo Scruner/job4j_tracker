@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tracker {
-    private final List<Item> items = new ArrayList<>(100);
-    private int size = 0;
+    private final List<Item> items = new ArrayList<>();
 
     public Item add(Item item) {
         items.add(item);
@@ -18,16 +17,14 @@ public class Tracker {
 
 
     public List<Item> findByName(String key) {
-        int localSize = 0;
-        List<Item> itemsWithoutDouble = new ArrayList<>(items.size());
-        for (int index = 0; index < size; index++) {
+        List<Item> rsl = new ArrayList<>();
+        for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getName()
                     .equals(key)) {
-                itemsWithoutDouble.set(localSize, items.get(index));
-                localSize++;
+                rsl.add(items.get(index));
             }
         }
-        return itemsWithoutDouble;
+        return rsl;
     }
 
     public Item findById(int id) {
@@ -37,7 +34,7 @@ public class Tracker {
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
+        for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
@@ -50,7 +47,7 @@ public class Tracker {
         int index = indexOf(id);
         if (index != -1) {
             item.setId(id);
-            items.add(item);
+            items.add(index, item);
             return true;
         }
         return false;
@@ -59,9 +56,7 @@ public class Tracker {
     public boolean delete(int id) {
         int index = indexOf(id);
         if (index != -1) {
-            System.arraycopy(items, index + 1, items, index, size - index - 1);
-            items.set(size - 1, null);
-            size--;
+            items.remove(index);
             return true;
         }
         return false;
