@@ -23,5 +23,15 @@ public class JobSorter {
                 .thenComparing(new JobWainingByPriority());
         Collections.sort(jobs, comb2);
         System.out.println(jobs);
+
+        Comparator<Job> comb3 = new JobIncreaseByPriority()
+                .thenComparing(new JobIncreaseByName());
+        Collections.sort(jobs, comb3);
+        System.out.println(jobs);
+
+        Comparator<Job> comb4 = new JobWainingByPriority()
+                .thenComparing(new JobWainingByName());
+        Collections.sort(jobs, comb4);
+        System.out.println(jobs);
     }
 }

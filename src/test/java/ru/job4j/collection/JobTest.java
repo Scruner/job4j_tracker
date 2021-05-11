@@ -34,6 +34,26 @@ public class JobTest {
     }
 
     @Test
+    public void whenComparatorByPriorityAndNameIncrease() {
+        Comparator<Job> cmpNamePriority = new JobIncreaseByPriority().thenComparing(new JobIncreaseByName());
+        int rsl = cmpNamePriority.compare(
+                new Job("Impl task", 0),
+                new Job("Fix bug", 1)
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
+    @Test
+    public void whenComparatorByPriorityAndNameWaining() {
+        Comparator<Job> cmpNamePriority = new JobWainingByPriority().thenComparing(new JobWainingByName());
+        int rsl = cmpNamePriority.compare(
+                new Job("Impl task", 0),
+                new Job("Fix bug", 1)
+        );
+        assertThat(rsl, lessThan(1));
+    }
+
+    @Test
     public void testNameLessThan() {
         List<Job> jobs = Arrays.asList(new Job("o1"), new Job("o2"));
         Collections.sort(jobs, new JobWainingByName());
