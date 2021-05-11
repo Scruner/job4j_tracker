@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.Collection;
 import java.util.Comparator;
 
 public class IdComparatorWaning implements Comparator<Item> {
