@@ -2,17 +2,20 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class IdComparatorWaningTest {
-    public IdComparatorWaning idComparatorWaning = new IdComparatorWaning();
+    public List<Item> list = new ArrayList<>();
 
     @Test
     public void testGreaterThan() {
-        Item item1 = new Item(2);
-        Item item2 = new Item(1);
-        int rsl = idComparatorWaning.compare(item1, item2);
-        assertTrue("expected to be greater than", rsl >= 1);
+        list.sort(new Comparator<Item>());
+        assertThat(что ожидаем, что в реальности);
     }
 
 }
