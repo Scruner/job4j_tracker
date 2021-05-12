@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
@@ -20,7 +20,7 @@ public class JobTest {
                 new Job("Impl task", 0),
                 new Job("Fix bug", 1)
         );
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, greaterThan(0));
     }
 
     @Test
@@ -30,7 +30,7 @@ public class JobTest {
                 new Job("Impl task", 0),
                 new Job("Fix bug", 1)
         );
-        assertThat(rsl, lessThan(1));
+        assertThat(rsl, lessThan(0));
     }
 
     @Test
@@ -50,7 +50,7 @@ public class JobTest {
                 new Job("Impl task", 0),
                 new Job("Impl task", 1)
         );
-        assertThat(rsl, lessThan(1));
+        assertThat(rsl, greaterThan(0));
     }
 
     @Test
