@@ -19,8 +19,8 @@ public class JobSorter {
         Collections.sort(jobs, comb);
         System.out.println(jobs);
 
-        Comparator<Job> comb2 = new JobWainingByName()
-                .thenComparing(new JobWainingByPriority());
+        Comparator<Job> comb2 = new JobDecreaseByName()
+                .thenComparing(new JobDecreaseByPriority());
         Collections.sort(jobs, comb2);
         System.out.println(jobs);
 
@@ -29,8 +29,8 @@ public class JobSorter {
         Collections.sort(jobs, comb3);
         System.out.println(jobs);
 
-        Comparator<Job> comb4 = new JobWainingByPriority()
-                .thenComparing(new JobWainingByName());
+        Comparator<Job> comb4 = new JobDecreaseByPriority()
+                .thenComparing(new JobDecreaseByName());
         Collections.sort(jobs, comb4);
         System.out.println(jobs);
     }

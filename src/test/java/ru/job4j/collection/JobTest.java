@@ -24,8 +24,8 @@ public class JobTest {
     }
 
     @Test
-    public void whenComparatorByNameAndPriorityWaining() {
-        Comparator<Job> cmpNamePriority = new JobWainingByName().thenComparing(new JobWainingByPriority());
+    public void whenComparatorByNameAndPriorityDecrease() {
+        Comparator<Job> cmpNamePriority = new JobDecreaseByName().thenComparing(new JobDecreaseByPriority());
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
                 new Job("Fix bug", 1)
@@ -38,17 +38,17 @@ public class JobTest {
         Comparator<Job> cmpNamePriority = new JobIncreaseByPriority().thenComparing(new JobIncreaseByName());
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
-                new Job("Fix bug", 1)
+                new Job("Impl task", 1)
         );
         assertThat(rsl, lessThan(0));
     }
 
     @Test
-    public void whenComparatorByPriorityAndNameWaining() {
-        Comparator<Job> cmpNamePriority = new JobWainingByPriority().thenComparing(new JobWainingByName());
+    public void whenComparatorByPriorityAndNameDecrease() {
+        Comparator<Job> cmpNamePriority = new JobDecreaseByPriority().thenComparing(new JobDecreaseByName());
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
-                new Job("Fix bug", 1)
+                new Job("Impl task", 1)
         );
         assertThat(rsl, lessThan(1));
     }
@@ -56,7 +56,7 @@ public class JobTest {
     @Test
     public void testNameLessThan() {
         List<Job> jobs = Arrays.asList(new Job("o1"), new Job("o2"));
-        Collections.sort(jobs, new JobWainingByName());
+        Collections.sort(jobs, new JobDecreaseByName());
         List<Job> expected = Arrays.asList(new Job("o2"), new Job("o1"));
         assertEquals(jobs, expected);
     }
@@ -72,7 +72,7 @@ public class JobTest {
     @Test
     public void testPriorityLessThan() {
         List<Job> jobs = Arrays.asList(new Job(1), new Job(2));
-        Collections.sort(jobs, new JobWainingByPriority());
+        Collections.sort(jobs, new JobDecreaseByPriority());
         List<Job> expected = Arrays.asList(new Job(2), new Job(1));
         assertEquals(jobs, expected);
     }
