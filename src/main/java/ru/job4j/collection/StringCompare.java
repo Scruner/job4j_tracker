@@ -28,4 +28,3 @@ public class StringCompare implements Comparator<String> {
 //        Character.compare(left.charAt(i), right.charAt(i));
 //        }
 //        return 0;
-//        }
