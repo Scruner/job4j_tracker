@@ -15,17 +15,13 @@ public class StringCompare implements Comparator<String> {
 
     @Override
     public int compare(String left, String right) {
-        return left.length() - right.length() != 0 ? left.length() - right.length() :
-                Character.compare(left.charAt(position), right.charAt(position));
+        int min = Math.min(left.length(), right.length());
+        for (char i = 0; i < min; i++) {
+           int rsl = Character.compare(left.charAt(i), right.charAt(i));
+           if (rsl != 0) {
+               return rsl;
+           }
+        }
+        return Integer.compare(left.length(), right.length());
     }
 }
-
-
-
-// Integer.compare(left.length(), right.length());
-//         int max = Math.min(left.length(), right.length());
-//         for (char i = 0; i < max; i++) {
-//        Character.compare(left.charAt(i), right.charAt(i));
-//        }
-//        return 0;
-//        }
