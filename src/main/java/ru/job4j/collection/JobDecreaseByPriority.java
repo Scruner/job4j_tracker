@@ -8,6 +8,4 @@ public class JobDecreaseByPriority implements Comparator<Job> {
     public int compare(Job o1, Job o2) {
         return Integer.compare(o2.getPriority(), o1.getPriority());
     }
-
-
 }

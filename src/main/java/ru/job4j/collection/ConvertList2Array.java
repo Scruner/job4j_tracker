@@ -12,7 +12,7 @@ public class ConvertList2Array {
             array[row][cell++] = num;
             if (cell == cells) {
                 row++;
-                cell=0;
+                cell = 0;
             }
         }
         return array;
