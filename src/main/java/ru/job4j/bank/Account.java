@@ -2,9 +2,21 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает аккаунт клиента банка
+ * @author ALEXEY VEDENISTOV
+ * @version 1.0
+ */
 public class Account {
 
+    /**
+     * Реквизиты счёта банковского клиента
+     */
     private String requisite;
+
+    /**
+     * Баланс средств на счёте клиента
+     */
     private double balance;
 
     public Account(String requisite, double balance) {
