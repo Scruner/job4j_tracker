@@ -6,27 +6,25 @@ public class Departments {
 
     public static List<String> fillGaps(List<String> deps) {
         Set<String> tmp = new LinkedHashSet<>();
-        for (String value :
-                deps) {
+        for (String value : deps) {
             String start = "";
-            for (String el :
-                    value.split("/")) {
+            for (String el : value.split("/")) {
                 if (el.isEmpty()) {
                     start = el;
                 } else {
                     start += "/" + el;
                 }
-                tmp.add(start + "/" + el);
+                tmp.add(start);
             }
         }
         return new ArrayList<>();
     }
 
     public static void sortAsc(List<String> orgs) {
-        Collections.sort(orgs);
+        orgs.sort(Comparator.naturalOrder());
     }
 
     public static void sortDesc(List<String> orgs) {
-       Collections.reverse(orgs);
+        orgs.sort(new DepDescComp());
     }
 }

@@ -11,9 +11,7 @@ public class DepDescComp implements Comparator<String> {
         int rsl = o2Spl[0].compareTo(o1Spl[0]);
         if (rsl == 0) {
             o1.compareTo(o2);
-        } else {
-            return rsl;
         }
-        return 0;
+        return rsl;
     }
 }
