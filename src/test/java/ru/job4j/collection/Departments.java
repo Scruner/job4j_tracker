@@ -11,6 +11,11 @@ public class Departments {
             String start = "";
             for (String el :
                     value.split("/")) {
+                if (el.isEmpty()) {
+                    start = el;
+                } else {
+                    start += "/" + el;
+                }
                 tmp.add(start + "/" + el);
             }
         }
@@ -18,20 +23,10 @@ public class Departments {
     }
 
     public static void sortAsc(List<String> orgs) {
-        List<String> sorted = new ArrayList<>(new Comparator<String>() {
-            public int compare(String o1, String o2) {
-                return o2.compareTo(o1);
-            }
-        });
-        sorted.addAll(orgs);
+        Collections.sort(orgs);
     }
 
     public static void sortDesc(List<String> orgs) {
-        List<String> sorted = new ArrayList<>(new Comparator<String>() {
-            public int compare(String o1, String o2) {
-                return o1.compareTo(o2);
-            }
-        });
-        sorted.addAll(orgs);
+       Collections.reverse(orgs);
     }
 }
