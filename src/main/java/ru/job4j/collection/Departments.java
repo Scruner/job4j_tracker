@@ -9,7 +9,7 @@ public class Departments {
         for (String value : deps) {
             String start = "";
             for (String el : value.split("/")) {
-                if (el.isEmpty()) {
+                if (start.isEmpty()) {
                     start = el;
                 } else {
                     start += "/" + el;
@@ -17,7 +17,7 @@ public class Departments {
                 tmp.add(start);
             }
         }
-        return new ArrayList<>();
+        return new ArrayList<>(tmp);
     }
 
     public static void sortAsc(List<String> orgs) {

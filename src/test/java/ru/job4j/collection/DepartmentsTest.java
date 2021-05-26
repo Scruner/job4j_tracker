@@ -28,21 +28,21 @@ public class DepartmentsTest {
 
     @Test
     public void whenSortAsc() {
-        List<String> input = Arrays.asList("K1/SK1/SSK2", "K1", "k1/sk1", "K1/SK1/SSK1", "K1/SK2"
+        List<String> input = Arrays.asList("K1/SK1","K1/SK1/SSK1", "K1/SK1/SSK2",  "K1/SK2"
+                , "K2", "K2/SK1/SSK1", "K2/SK1/SSK2");
+        List<String> expect = Arrays.asList("K1", "K1/SK1", "K1/SK1/SSK1", "K1/SK1/SSK2", "K1/SK2"
                 , "K2", "K2/SK1", "K2/SK1/SSK1", "K2/SK1/SSK2");
-        List<String> expect = Arrays.asList("K1", "k1/sk1", "K1/SK1/SSK1", "K1/SK1/SSK2", "K1/SK2"
-                , "K2", "K2/SK1", "K2/SK1/SSK1", "K2/SK1/SSK2");
-        List<String> result = Departments.sortAsc(input);
-        assertThat(result, is(expect));
+        Departments.sortAsc(input);
+        assertThat(input, is(expect));
     }
 
     @Test
     public void whenSortDesc() {
         List<String> input = Arrays.asList("K2/SK1/SSK1", "K2", "K2/SK1", "K2/SK1/SSK2", "K1/SK1/SSK2"
-                , "K1", "k1/sk1", "K1/SK1/SSK1", "K1/SK2");
-        List<String> expect = Arrays.asList("K2", "K2/SK1", "K2/SK1/SSK1", "K2/SK1/SSK2", "K1", "k1/sk1"
+                , "K1", "K1/SK1", "K1/SK1/SSK1", "K1/SK2");
+        List<String> expect = Arrays.asList("K2", "K2/SK1", "K2/SK1/SSK1", "K2/SK1/SSK2", "K1", "K1/SK1"
                 , "K1/SK1/SSK1", "K1/SK1/SSK2", "K1/SK2");
-        List<String> result = Departments.sortAsc(input);
-        assertThat(result, is(expect));
+        Departments.sortAsc(input);
+        assertThat(input, is(expect));
     }
 }
