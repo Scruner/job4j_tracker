@@ -20,14 +20,21 @@ public class FunctionalInterfaces {
         map.put(7, "seven");
         map.forEach(biCon);
 
-        BiPredicate<Integer, String> biPred = (i, s) -> (i % 2 == 0 || map.get(i).length() == 4);
+        BiPredicate<Integer, String> biPred = (intg, s) -> (intg % 2 == 0 || map.get(intg).length() == 4);
         for (Integer i : map.keySet()) {
-        System.out.println("key: " + i + " value: " + map.get(i));
+            if (i % 2 == 0 || map.get(i).length() == 4) {
+                System.out.println("key: " + i + " value: " + map.get(i));
+            }
         }
 
         Supplier<List<String>> sup = () -> new ArrayList<>(map.values());
+        List<String> strings = new ArrayList<>(map.values());
 
         Consumer<String> con = System.out::println;
         Function<String, String> func = String::toUpperCase;
+        for (String s : strings) {
+            System.out.println(s.toUpperCase());
+
+        }
     }
 }
