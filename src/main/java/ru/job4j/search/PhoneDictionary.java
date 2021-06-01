@@ -12,18 +12,19 @@ public class PhoneDictionary {
 
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
-        for (Person searchPerson : persons) {
-            if (searchPerson.getName()
-                    .contains(key)
-                    || searchPerson.getSurname()
-                    .contains(key)
-                    || searchPerson.getPhone()
-                    .contains(key)
-                    || searchPerson.getAddress()
-                    .contains(key)) {
-                result.add(searchPerson);
-            }
-        }
+
+//        for (Person searchPerson : persons) {
+//            if (searchPerson.getName()
+//                    .contains(key)
+//                    || searchPerson.getSurname()
+//                    .contains(key)
+//                    || searchPerson.getPhone()
+//                    .contains(key)
+//                    || searchPerson.getAddress()
+//                    .contains(key)) {
+//                result.add(searchPerson);
+//            }
+//        }
         return result;
     }
 }

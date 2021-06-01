@@ -26,7 +26,7 @@ public class FreezeStr {
                 hashMap.put(c, hashMap.get(c) - 1);
             }
         }
-        return true;
+        return hashMap.isEmpty();
     }
 }
 //        if (left.length() != right.length()) {
