@@ -20,13 +20,10 @@ public class FreezeStr {
         for (Character c : right.toCharArray()) {
             if (!hashMap.containsKey(c)) {
                 return false;
+            } else if (hashMap.containsKey(c) && hashMap.containsValue(1)) {
+                hashMap.remove(c, 1);
             } else {
                 hashMap.put(c, hashMap.get(c) - 1);
-            }
-        }
-        for (Character c : hashMap.keySet()) {
-            if (hashMap.get(c) != 0) {
-                return false;
             }
         }
         return true;
