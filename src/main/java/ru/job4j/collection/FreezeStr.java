@@ -29,15 +29,4 @@ public class FreezeStr {
         return hashMap.isEmpty();
     }
 }
-//        if (left.length() != right.length()) {
-//            return false;
-//        }
-//        char[] a = left.toCharArray();
-//        char[] b = right.toCharArray();
-//
-//        Arrays.sort(a);
-//        Arrays.sort(b);
-//        return Arrays.equals(a, b);
-//    }
-//
 

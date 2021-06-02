@@ -8,8 +8,7 @@ public class SearchFolder {
 
     public static List<Folder> filter(List<Folder> list, Predicate<Folder> pred) {
         List<Folder> rsl = new ArrayList<>();
-        for (Folder fld :
-                list) {
+        for (Folder fld : list) {
             if (pred.test(fld)) {
                 rsl.add(fld);
             }
