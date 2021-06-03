@@ -6,24 +6,6 @@ import java.util.stream.Collectors;
 
 public class StreamUsage {
 
-    public static class Task {
-        private final String name;
-        private final long spent;
-
-        public Task(String name, long spent) {
-            this.name = name;
-            this.spent = spent;
-        }
-
-        @Override
-        public String toString() {
-            return "Task{" +
-                    "name='" + name + '\'' +
-                    ", spent=" + spent +
-                    '}';
-        }
-    }
-
     public static void main(String[] args) {
         List<Integer> arrayList = new ArrayList<>();
         arrayList.add(3);
