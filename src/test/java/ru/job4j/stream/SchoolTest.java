@@ -29,12 +29,6 @@ public class SchoolTest {
         assertThat(rsl, is(expected));
     }
 
-//    tasks.stream()
-//            .filter(task -> task.name.contains("Bug"))
-//            .filter(task -> task.spent > 30)
-//            .map(task -> task.name + " " + task.spent)
-//            .forEach(System.out::println);
-
     @Test
     public void whenCollectClassB() {
         List<Student> students = List.of(
