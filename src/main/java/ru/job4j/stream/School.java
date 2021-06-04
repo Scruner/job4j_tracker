@@ -10,6 +10,5 @@ public class School {
         return students.stream()
                 .filter(predict)
                 .collect(Collectors.toList());
-
     }
 }
