@@ -7,6 +7,8 @@ public class Profiles {
 
     public List<Address> collect(List<Profile> profiles) {
         return profiles.stream()
+                .sorted((x, y) -> x.getAddress().compareTo(y.getAddress()))
+                .distinct()
                 .map(Profile::getAddress)
                 .collect(Collectors.toList());
     }

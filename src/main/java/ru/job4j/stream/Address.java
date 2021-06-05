@@ -5,9 +5,7 @@ import java.util.Objects;
 public class Address {
 
     private String city;
-
     private int home;
-
     private int apartment;
 
     public Address(String city, int home, int apartment) {
@@ -64,6 +62,11 @@ public class Address {
                 + "city='" + city + '\''
                 + ", home=" + home
                 + ", apartment=" + apartment
+
                 + '}';
+    }
+
+    public int compareTo(Address address) {
+        return this.getCity().compareTo(address.getCity());
     }
 }

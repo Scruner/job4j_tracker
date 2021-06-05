@@ -14,7 +14,9 @@ public class ProfilesTest {
     public void whenCollectClassA() {
         List<Profile> addresses = List.of(
                 new Profile(new Address("Moscow", 23, 14)),
+                new Profile(new Address("Moscow", 23, 14)),
                 new Profile(new Address("Tula", 3, 1)),
+                new Profile(new Address("Nachodka", 2, 4)),
                 new Profile(new Address("Nachodka", 2, 4)),
                 new Profile(new Address("Tomsk", 25, 114)),
                 new Profile(new Address("Kaluga", 7, 124))
