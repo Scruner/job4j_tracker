@@ -3,6 +3,8 @@ package ru.job4j.stream;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -29,6 +31,8 @@ public class ProfilesTest {
         expected.add(new Address("Nachodka", 2, 4));
         expected.add(new Address("Tomsk", 25, 114));
         expected.add(new Address("Kaluga", 7, 124));
+        Collections.sort(expected,
+                         Comparator.comparing(Address::getCity));
         assertThat(rsl, is(expected));
     }
 }
