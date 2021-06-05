@@ -30,8 +30,8 @@ public class Student {
             return false;
         }
         Student student = (Student) o;
-        return score == student.score &&
-                Objects.equals(surname, student.surname);
+        return score == student.score
+                && Objects.equals(surname, student.surname);
     }
 
     @Override
@@ -41,9 +41,12 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "score=" + score +
-                ", surname='" + surname + '\'' +
-                '}';
+        return "Student{"
+                + "score="
+                + score
+                + ", surname='"
+                + surname
+                + '\''
+                + '}';
     }
 }
