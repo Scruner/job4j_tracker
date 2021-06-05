@@ -65,8 +65,4 @@ public class Address {
 
                 + '}';
     }
-
-    public int compareTo(Address address) {
-        return this.getCity().compareTo(address.getCity());
-    }
 }
