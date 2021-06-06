@@ -12,9 +12,8 @@ public class StudentMap {
                         Collectors.toMap(
                                 Student::getSurname,
                                 s -> s,
-                                (f, s) ->
-                                     f
-                                ));
+                                (f, s) -> f
+                        ));
     }
 }
 
