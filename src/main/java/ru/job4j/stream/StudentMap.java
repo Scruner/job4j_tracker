@@ -13,7 +13,7 @@ public class StudentMap {
                                 Student::getSurname,
                                 s -> s,
                                 (f, s) ->
-                                     f.equals(s) ? f:s
+                                     f
                                 ));
     }
 }
