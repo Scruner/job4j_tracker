@@ -28,7 +28,8 @@ public class BankService {
     }
 
     /**
-     * Метод добавляет новый аккаунт (данные клиента), если он не зарегистрирован в базе
+     * Метод добавляет новый аккаунт (данные клиента), если он не
+     * зарегистрирован в базе
      *
      * @param passport добавляются данные паспорта, если их нет в базе
      * @param account  добавляется аккаунт, если его нет в базе
@@ -46,54 +47,60 @@ public class BankService {
     /**
      * Метод производит поиск клиента, по паспортным данным
      *
-     * @param passport паспортные данные клиента, по которым производится поиск его в базе
+     * @param passport паспортные данные клиента, по которым производится
+     *                 поиск его в базе
      * @return возвращает найденного клиента или null, если клиент не найден
      */
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {
-            if (user.getPassport()
-                    .equals(passport)) {
-                return user;
-            }
-        }
-        return null;
+        return users.keySet()
+                .stream()
+                .filter(usr -> usr.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
      * Метод производит поиск аккаунта клиента по паспортным данным и реквизитам
      *
-     * @param passport  паспортные данные клиента, по которым производится поиск его в базе
-     * @param requisite реквизыты счёта клиента, по которым производится поиск его в базе
-     * @return возвращает найденный в базе аккаунт клиента или null, если аккаунт не найден
+     * @param passport  паспортные данные клиента, по которым производится
+     *                  поиск его в базе
+     * @param requisite реквизыты счёта клиента, по которым производится
+     *                  поиск его в базе
+     * @return возвращает найденный в базе аккаунт клиента или null, если
+     * аккаунт не найден
      */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
-            List<Account> accounts = users.get(user);
-            for (Account acc : accounts) {
-                if (acc.getRequisite()
-                        .equals(requisite)) {
-                    return acc;
-                }
-            }
+            return users.get(user)
+                    .stream()
+                    .filter(usr -> usr.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
         return null;
     }
 
     /**
-     * Метод производит перевод средств с одного счёта на другой, осуществляя проверку
+     * Метод производит перевод средств с одного счёта на другой, осуществляя
+     * проверку
      * баланса на счёте отправителя для определения возможности перевода
      *
-     * @param srcPassport   паспортные данные клиента со счёта которого будет осуществляться
+     * @param srcPassport   паспортные данные клиента со счёта которого будет
+     *                      осуществляться
      *                      транзакция
-     * @param srcRequisite  реквизиты счёта клиента с которого будет осуществляться
+     * @param srcRequisite  реквизиты счёта клиента с которого будет
+     *                      осуществляться
      *                      транзакция
-     * @param destPassport  паспортные данные клиента на счёт которого будет осуществляться
+     * @param destPassport  паспортные данные клиента на счёт которого будет
+     *                      осуществляться
      *                      транзакция
-     * @param destRequisite реквизиты счёта клиента на который будет осуществляться
+     * @param destRequisite реквизиты счёта клиента на который будет
+     *                      осуществляться
      *                      транзакция
      * @param amount        сумма перевода
-     * @return возвращает результат транзакции true - осуществлена, false - не осуществлена
+     * @return возвращает результат транзакции true - осуществлена, false -
+     * не осуществлена
      */
     public boolean transferMoney(
             String srcPassport, String srcRequisite,
