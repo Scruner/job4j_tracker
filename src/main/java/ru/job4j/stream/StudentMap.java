@@ -6,13 +6,15 @@ import java.util.stream.Collectors;
 
 public class StudentMap {
 
-    public Map<String, Class<? extends Student>> collect(List<Student> students) {
+    public Map<String, Student> collect(List<Student> students) {
         return students.stream()
-                .distinct()
                 .collect(
                         Collectors.toMap(
                                 Student::getSurname,
-                                Student::getClass));
+                                s -> s,
+                                (f, s) ->
+                                     f.equals(s) ? f:s
+                                ));
     }
 }
 

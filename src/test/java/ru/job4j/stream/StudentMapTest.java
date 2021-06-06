@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
 public class StudentMapTest {
 
     @Test
-    public void whenCollectClassA() {
+    public void whenCollectListToMap() {
         List<Student> students = List.of(
                 new Student("Surname1"),
                 new Student("Surname4"),
@@ -24,7 +24,7 @@ public class StudentMapTest {
                 new Student("Surname9")
         );
         StudentMap sm = new StudentMap();
-        List<Student> rsl = (List<Student>) sm.collect(students);
+        Map<String, Student> rsl = sm.collect(students);
         Map<String, Student> expected = new HashMap<>();
         expected.put("Surname1", new Student());
         expected.put("Surname4", new Student());
