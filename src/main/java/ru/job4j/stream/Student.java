@@ -4,9 +4,15 @@ import java.util.Objects;
 
 public class Student {
 
-    private final int score;
+    private int score;
+    private String surname;
 
-    private final String surname;
+    public Student() {
+    }
+
+    public Student(String surname) {
+        this.surname = surname;
+    }
 
     public Student(int score, String surname) {
         this.score = score;
