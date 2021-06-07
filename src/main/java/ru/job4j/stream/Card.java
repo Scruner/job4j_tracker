@@ -6,13 +6,6 @@ import java.util.stream.Stream;
 
 public class Card {
 
-    private static Value V_6;
-    private static Value V_7;
-    private static Value V_8;
-    private static Suit Diamonds;
-    private static Suit Hearts;
-    private static Suit Spades;
-    private static Suit Clubs;
     private Suit suit;
     private Value value;
 
@@ -22,11 +15,11 @@ public class Card {
     }
 
     public static void main(String[] args) {
-        Suit[] suits = {Diamonds, Hearts, Spades, Clubs};
-        Value[] values = {V_6, V_7, V_8};
+        Suit[] suits = Suit.values();
+        Value[] vls = Value.values();
         Stream.of(suits)
-                .flatMap(s -> Stream.of(values)
-                .map(v -> s + " " + v))
+                .flatMap(s -> Stream.of(vls)
+                        .map(v -> (new Suit(), new Value()))
                 .forEach(System.out::println);
     }
 }
