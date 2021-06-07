@@ -1,9 +1,6 @@
 package ru.job4j.bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Класс описывает работу системы учёта банковских счетов клиентов
@@ -16,7 +13,7 @@ public class BankService {
     /**
      * Хранение информации о клиенте осуществляется в коллекции типа Map
      */
-    private Map<User, List<Account>> users = new HashMap<>();
+    private final Map<User, List<Account>> users = new HashMap<>();
 
     /**
      * Метод добавляет клиента в базу, если он не зарегистрирован
@@ -70,15 +67,11 @@ public class BankService {
      * аккаунт не найден
      */
     public Account findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            return users.get(user)
-                    .stream()
-                    .filter(usr -> usr.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null);
-        }
-        return null;
+        Optional<User> user = Optional.ofNullable(findByPassport(passport));
+        return user.flatMap(value -> users.get(value)
+                .stream()
+                .filter(usr -> usr.getRequisite().equals(requisite))
+                .findFirst()).orElse(null);
     }
 
     /**
