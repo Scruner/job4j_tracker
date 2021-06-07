@@ -61,7 +61,7 @@ public class JobTest {
     public void testNameLessThan() {
         List<Job> jobs = Arrays.asList(new Job("o1"), new Job("o2"));
         Collections.sort(jobs, new JobDecreaseByName());
-        List<Job> expected = Arrays.asList(new Job("o2"), new Job("o1"));
+        List<Job> expected = List.of(new Job("o2"), new Job("o1"));
         assertEquals(jobs, expected);
     }
 
@@ -69,7 +69,7 @@ public class JobTest {
     public void testNameMoreThan() {
         List<Job> jobs = Arrays.asList(new Job("o1"), new Job("o2"));
         Collections.sort(jobs, new JobIncreaseByName());
-        List<Job> expected = Arrays.asList(new Job("o1"), new Job("o2"));
+        List<Job> expected = List.of(new Job("o1"), new Job("o2"));
         assertEquals(jobs, expected);
     }
 
@@ -77,7 +77,7 @@ public class JobTest {
     public void testPriorityLessThan() {
         List<Job> jobs = Arrays.asList(new Job(1), new Job(2));
         Collections.sort(jobs, new JobDecreaseByPriority());
-        List<Job> expected = Arrays.asList(new Job(2), new Job(1));
+        List<Job> expected = List.of(new Job(2), new Job(1));
         assertEquals(jobs, expected);
     }
 
@@ -85,7 +85,7 @@ public class JobTest {
     public void testPriorityMoreThan() {
         List<Job> jobs = Arrays.asList(new Job(1), new Job(2));
         Collections.sort(jobs, new JobIncreaseByPriority());
-        List<Job> expected = Arrays.asList(new Job(1), new Job(2));
+        List<Job> expected = List.of(new Job(1), new Job(2));
         assertEquals(jobs, expected);
     }
 }

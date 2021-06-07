@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class NotifyAccountTest {
 
@@ -18,7 +18,7 @@ public class NotifyAccountTest {
                 new Account("142", "Petr Arsentev", "000001")
         );
         HashSet<Account> expect = new HashSet<>(
-                Arrays.asList(
+                List.of(
                         new Account("123", "Petr Arsentev", "eDer3432f"),
                         new Account("142", "Petr Arsentev", "000001")
                 )
@@ -33,7 +33,7 @@ public class NotifyAccountTest {
                 new Account("123", "Petr Arsentev", "000001")
         );
         HashSet<Account> expect = new HashSet<>(
-                Arrays.asList(
+                List.of(
                         new Account("123", "Petr Arsentev", "eDer3432f"),
                         new Account("123", "Petr Arsentev", "000001")
                 )
