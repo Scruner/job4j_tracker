@@ -1,7 +1,5 @@
 package ru.job4j.stream;
 
-import com.sun.jdi.Value;
-
 import java.util.stream.Stream;
 
 public class Card {
@@ -18,8 +16,17 @@ public class Card {
         Suit[] suits = Suit.values();
         Value[] vls = Value.values();
         Stream.of(suits)
-                .flatMap(s -> Stream.of(vls)
-                        .map(v -> (new Suit(), new Value()))
+                .flatMap(s -> Stream.of(vls).map(v -> (new Card(s, v))))
                 .forEach(System.out::println);
+    }
+
+    @Override
+    public String toString() {
+        return "Card{"
+                + "suit="
+                + suit
+                + ", value="
+                + value
+                + '}';
     }
 }
