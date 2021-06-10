@@ -19,4 +19,12 @@ public class Pupil {
     public List<Subject> getSubjects() {
         return subjects;
     }
+
+    @Override
+    public String toString() {
+        return "Pupil{" +
+                "name='" + name + '\'' +
+                ", subjects=" + subjects +
+                '}';
+    }
 }
