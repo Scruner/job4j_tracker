@@ -22,9 +22,12 @@ public class Pupil {
 
     @Override
     public String toString() {
-        return "Pupil{" +
-                "name='" + name + '\'' +
-                ", subjects=" + subjects +
-                '}';
+        return "Pupil{"
+                + "name='"
+                + name
+                + '\''
+                + ", subjects="
+                + subjects
+                + '}';
     }
 }
