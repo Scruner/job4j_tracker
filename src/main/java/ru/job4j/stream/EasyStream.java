@@ -1,56 +1,60 @@
 package ru.job4j.stream;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class EasyStream {
 
+    private List<Integer> list;
+
     public static EasyStream of(List<Integer> source) {
-        throw new UnsupportedOperationException();
+        return new EasyStreamBuilder()
+                .buildList(source)
+                .build();
     }
 
     public EasyStream map(Function<Integer, Integer> fun) {
-        throw new UnsupportedOperationException();
+        List<Integer> arrayList = new ArrayList<>();
+        for (int i : list) {
+            arrayList.add(fun.apply(i));
+        }
+        return new EasyStreamBuilder()
+                .buildList(arrayList)
+                .build();
     }
 
     public EasyStream filter(Predicate<Integer> fun) {
-        throw new UnsupportedOperationException();
+        List<Integer> arrayList = new ArrayList<>();
+        for (int i : list) {
+            if (fun.test(i)) {
+                arrayList.add(i);
+            }
+        }
+        return new EasyStreamBuilder()
+                .buildList(arrayList)
+                .build();
     }
 
     public List<Integer> collect() {
-        throw new UnsupportedOperationException();
+        return list;
     }
 
-    static class Builder {
+    public static class EasyStreamBuilder {
 
-        public Builder of() {
+        private List<Integer> list;
+
+        public EasyStreamBuilder buildList(List<Integer> list) {
+            this.list = list;
             return this;
         }
 
-        public Builder map() {
-            return this;
+        public EasyStream build() {
+            EasyStream easyStream = new EasyStream();
+            easyStream.list = list;
+            return easyStream;
         }
-
-        public Builder filter() {
-            return this;
-        }
-
-        public Builder collect() {
-            return this;
-        }
-
-        EasyStream build() {
-            return new EasyStream();
-        }
-    }
-
-    public static void main(String[] args) {
-        EasyStream easyStream = new Builder().of()
-                .map()
-                .filter()
-                .collect()
-                .build();
     }
 }
 
