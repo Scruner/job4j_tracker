@@ -9,6 +9,9 @@ public class EasyStream {
 
     private List<Integer> list;
 
+    private EasyStream() {
+    }
+
     public static EasyStream of(List<Integer> source) {
         return new EasyStreamBuilder()
                 .buildList(source)
